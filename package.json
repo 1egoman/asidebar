@@ -1,0 +1,11 @@
+{
+  "name": "asidebar",
+  "version": "1.0.0",
+  "description": "A collapsing aside container / sidebar that works with jQuery.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,86 @@
+$asidebar-min-width: 350px;
+$asidebar-width: 15%;
+$asidebar-background: #FFF;
+
+@mixin make-aside-header($color: red) {
+  background-color: $color;
+  padding: 1em;
+  padding-left: 0.5em;
+  border-bottom: 1px solid darken($color, 12%);
+  font-size: 1.2em;
+  @if (lightness($color) < 50) {
+    color: white;
+  } @else {
+    color: black;
+  }
+}
+
+@mixin make-aside(
+  $background: $asidebar-background,
+  $min-width: $asidebar-min-width,
+  $width: $asidebar-width
+) {
+  min-width: $min-width;
+  width: $width;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+
+  background-color: $background;
+  font-family: Helvetica, Arial, sans-serif;
+
+  border-right: 1px solid #333;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+  z-index: 2000;
+}
+
+.aside {
+  @include make-aside;
+  width: 0px;
+  min-width: 0px;
+  overflow: hidden;
+  transition: 0.35s width ease, 0.35s min-width ease;
+
+  .aside-header {
+    @include make-aside-header;
+    .close {
+      float: right;
+      cursor: pointer;
+    }
+  }
+  .aside-contents {
+    padding: 0.5em;
+    padding-bottom: 1em;
+  }
+
+  &.in {
+    width: $asidebar-width;
+    min-width: $asidebar-min-width;
+  }
+}
+.aside-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  background-color: #000;
+  transition: 0.2s opacity ease;
+  opacity: 0;
+  display: none;
+
+  &.in {
+    display: block;
+    opacity: 0.5;
+  }
+}
+
+
+
+
+
+body {
+  background: #EEE;
+}
