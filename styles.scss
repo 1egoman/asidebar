@@ -77,6 +77,11 @@ $asidebar-background: #FFF;
   }
 }
 
+.asidebar-enter { opacity: 0.01; }
+.asidebar-enter-active { opacity: 1; }
+.asidebar-leave { opacity: 1; }
+.asidebar-leave-active { opacity: 0; }
+
 
 
 

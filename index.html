@@ -19,44 +19,5 @@
     <div class="aside-backdrop"></div>
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
-    <script>
-      jQuery.fn.asidebar = function asidebar(status) {
-        switch (status) {
-          case "open":
-            var that = this;
-            // fade in backdrop
-            if ($(".aside-backdrop").length === 0) {
-              $("body").append("<div class='aside-backdrop'></div>");
-            }
-            $(".aside-backdrop").addClass("in");
-
-
-            function close() {
-              $(that).asidebar.apply(that, ["close"]);
-            }
-
-            // slide in asidebar
-            $(this).addClass("in");
-            $(this).find("[data-dismiss=aside], [data-dismiss=asidebar]").on('click', close);
-            $(".aside-backdrop").on('click', close);
-            break;
-          case "close":
-            // fade in backdrop
-            if ($(".aside-backdrop.in").length > 0) {
-              $(".aside-backdrop").removeClass("in");
-            }
-
-            // slide in asidebar
-            $(this).removeClass("in");
-            break;
-          case "toggle":
-            if($(this).attr("class").split(' ').indexOf('in') > -1) {
-              $(this).asidebar("close");
-            } else {
-              $(this).asidebar("open");
-            }
-        }
-      }
-    </script>
   </body>
 </html>
